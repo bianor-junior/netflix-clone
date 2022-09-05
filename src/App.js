@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import categorias from './api';
 import './App.css';
+import Row from './components/Row';
+import Banner from './components/Banner';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* menu */}
+      <Banner />
+      {categorias.map((category) => {
+        return <Row key={category.name}
+        title={category.title}
+        path={category.path}
+        isLarge={category.isLarge}
+        />
+      })}
     </div>
   );
 }
